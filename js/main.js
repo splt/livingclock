@@ -124,6 +124,7 @@
 					contentElement.style.transform = 'scale('+yRatio+')';
 				}else if(iOS){
 					contentElement.style.webkitTransform = 'scale(0.5) translate3d('+xOffset+'px, 100px,0)';
+					$('embed').className = 'kill';
 				}else{
 					contentElement.style.webkitTransform = 'scale(1)';
 					contentElement.style.mozTransform = 'scale(1)';
@@ -193,7 +194,6 @@
 					lastFrame = curFrame;
 
 					if(percentage == 100){
-
 						$('ps-24').addEventListener('webkitTransitionEnd', cb);
 						$('ps-24').addEventListener('mozTransitionEnd', cb);
 						$('ps-24').addEventListener('oTransitionEnd', cb);
@@ -299,9 +299,6 @@
 				walking.id.className = 'hand '+ dresses[curDress];
 				walking2.id.className = 'hand '+ dresses[curDress];
 
-				console.log('cD:', curDress, dresses[curDress]);
-				console.log('embedded: ', embedded);
-
 				var tick = setInterval(function(){
 					imgSeq(idle1);
 					imgSeq(idle2);
@@ -352,11 +349,9 @@
 			// 	$ss.style.webkitAnimationDuration = (aniSecs ? aniSecs : '30s');
 			// }
 
-
 			startClock($ss, $sm, $shr);
 			startAudio();
 			setContent();
-
 
 			// Check for Cookies - if not nor an embed, get users to sign up for emails
 
@@ -364,6 +359,7 @@
 
 			if(thanks){
 				$bc.addEventListener('click', function(){
+					startAudio();
 					$ty.className = 'hide';
 					setTimeout(function(){$ty.className = 'hide kill';}, 1000); // prevent focusing on input elements
 				});
