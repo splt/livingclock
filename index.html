@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Mary Katrantzou</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=0.7">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <script type="text/javascript" src="//use.typekit.net/yqj2nmv.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+        <script type="text/javascript" src="js/vendor/modernizr-2.6.2.min.js"></script>
+
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+<header>
+    <div id="play" class="hide kill">♪</div>
+    <div id="mute" class="hide kill">⦰</div>
+    <div id="embed" class="show">&lt;/&gt;</div>
+</header>
+    <div id="content" class="loading">
+
+        <div id="preloader" style="display: none;">
+            <div id="overflow">
+                <div id="left-line" class="line" style="width:0%"></div>
+                <div id="right-line" class="line" style="width:0%"></div>
+            </div>
+        </div><!--/preloader-->
+
+        <div id="clock-face" class="hidden">
+
+                <div id="hands">
+
+                    <div id="starting-hour">
+                        <div id="hour-hand" class="hand"></div>
+                    </div><!--/starting-hour-->
+                    <div id="starting-minute">
+                        <div id="minute-hand" class="hand"></div>
+                    </div><!--/starting-minute-->
+                    <div id="starting-sec">
+                        <div id="second-hand" class="hand"></div>
+                        <div id="second-hand-2" class="hand"></div>
+                    </div><!--/starting-sec-->
+
+                </div><!--/hands-->
+
+                <div id="presquares"></div><!--/presquares-->
+
+        <div id="email-signup" class="hide">
+
+            <div class="content">
+                <div id="email-logo"></div>
+                <div id="signup-txt">Time to sign up!</div>
+                <form id="signup-form" action="http://mail.estyledigital.co.uk/t/j/s/khkdjk/" method="post">
+                    <input type="text" id="input-name" class="txt" placeholder="name" name="cm-name"/>
+                    <input id="input-email" class="txt" placeholder="email" name="cm-khkdjk-khkdjk" type="email"/>
+                    <button value="go" id="button-submit" type="submit">go</button>
+                    <!-- <button value="x" id="button-cancel" type="button">x</button> -->
+                </form>
+            </div><!--/.content-->
+
+        </div><!--/email-signup-->
+
+        <div id="email-thankyou" class="hide kill">
+
+            <div class="content">
+                <div id="thanks-logo"></div>
+                <div id="thanks-txt">Thank you<br/>And welcome to the walking time</div>
+                <button value="x" id="button-cancel" type="button">x</button>
+            </div><!--/.content-->
+
+        </div><!--/email-thankyou-->
+
+
+        <div id="embed-prompt" class="hide kill">
+
+            <div class="content">
+                <div id="embed-logo"></div>
+                <div id="embed-txt">Post the Walking Time on your own site:</div>
+                <form id="embed-form">
+                    <textarea id="text-area"><iframe src="http://jmichaliga.com/clients/maryk/livingclock-8-29/index.html?embed" width="300" height="300" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
+                    </textarea>
+                    <button value="copy" id="embed-copy" type="button">copy</button>
+                </form>
+                <button value="x" id="embed-cancel" type="button">x</button>
+            </div><!--/.content-->
+
+        </div><!--/embed-prompt-->
+
+
+        </div><!--/clock-face-->
+
+    </div><!--/content-->
+
+    <div id="embedded-logo" class="kill">
+        <a href="http://www.jmichaliga.com" target="_parent">
+            <img src='img/maryk-220.png' width="110" height="7"/>
+        </a>
+    </div><!--/embedded-logo-->
+
+<footer id="footer" class="kill">
+    <img src="img/Embed.gif" width="70" height="70"/>
+</footer>
+
+        <script src="js/main.js"></script>
+        <script>
+            window.addEventListener('load', function(){
+                presquare();
+                window.addEventListener('resize', setContent);
+            }, false);
+
+
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-43565821-1', 'marykatrantzou.com');
+          ga('send', 'pageview');
+        </script>
+    </body>
+</html>

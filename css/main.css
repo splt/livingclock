@@ -1,0 +1,650 @@
+/* ==========================================================================
+   HTML5 Boilerplate styles - h5bp.com (generated via initializr.com)
+   ========================================================================== */
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+}
+
+body {
+    font-size: 1em;
+    line-height: 1.4;
+    font-family: 'adobe-caslon-pro', 'Georgia', 'Times New Roman', serif;
+    background: #FFF;
+}
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+img {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.chromeframe {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+   header{z-index: 10; position: fixed; width: 15px; height: 50px; padding: 0px; left:10px; top: 15px;}
+
+   #play{
+    position: absolute;
+    background: transparent url('../img/icons.png') no-repeat 3px 0px; 
+    background-size: 30px 30px; text-indent: -9000px;
+    width: 15px; height: 15px; margin-bottom: 5px;}
+   #mute{
+    position: absolute;
+    background: transparent url('../img/icons.png') no-repeat -12px 0px;
+    background-size: 30px 30px; text-indent: -9000px;
+    width: 18px; height: 15px; margin-bottom: 5px;}
+
+        #play, #mute{
+        -webkit-transition-duration: 800ms;
+        -moz-transition-duration: 800ms;
+        -o-transition-duration: 800ms;
+        transition-duration: 800ms;}
+        #play.hide,#mute.hide{opacity: 0;}
+        #play.kill,#mute.kill{display: none;}
+
+   #embed{
+    position: absolute; top: 25px; left: 2px;
+    background: transparent url('../img/icons.png') no-repeat 0px -15px;
+    background-size: 30px 30px; text-indent: -9000px;
+    width: 20px; height: 15px; margin-bottom: 5px;}
+
+    #content { 
+        -webkit-transition-duration: 500ms;
+        -moz-transition-duration: 500ms;
+        -o-transition-duration: 500ms;
+        transition-duration: 500ms;
+        -webkit-transform-origin: 50% 0%;
+        -moz-transform-origin: 50% 0%;
+        -o-transform-origin: 50% 0%;
+        transform-origin: 50% 0%;
+    }
+    .loading #hands, .loaded #preloader{opacity: 0;}
+    .loaded #hands, .loading #preloader{opacity: 1; -webkit-transition-delay: 1000ms;}
+
+    #preloader{
+        -webkit-transition-duration: 800ms;
+        -moz-transition-duration: 800ms;
+        -o-transition-duration: 800ms;
+        transition-duration: 800ms;
+        position: absolute; 
+        background: url('../img/mary-k-lineless.png') no-repeat; 
+        left: 50%; top: 50%;
+        margin-left: -150px;
+        width: 300px; height: 60px;
+    }
+
+    #overflow{position: absolute; width: 260px; height: 2px; overflow: hidden; left: 21px; top: 40px;}
+        .line{position: absolute; width: 130px; height: 2px; background: #bababa; 
+            -webkit-transition-duration: 500ms;
+            -moz-transition-duration: 500ms;
+            -o-transition-duration: 500ms;
+            transition-duration: 500ms;
+        }
+        #right-line{left: 130px;}
+        #left-line{right: 130px;}
+
+    #clock-face{
+        -webkit-transition-duration: 800ms;
+        -moz-transition-duration: 800ms;
+        -o-transition-duration: 800ms;
+        transition-duration: 800ms;
+        margin: 0px auto;
+        position: relative;
+        width: 740px; height: 740px; 
+        background: transparent url('../img/Clock_1076.png') no-repeat;
+        background-size: 740px 740px;
+        -webkit-transform-origin: 50% 50%;
+        -moz-transform-origin: 50% 50%;
+        -o-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+        display: block;
+    }
+        #clock-face.hidden{display:none;}
+
+    #hands{
+        position: absolute;
+        width: 100%; height: 100%;
+        -webkit-transition-duration: 800ms;
+        -webkit-transform-origin: 50% 50%;
+        -webkit-transform: rotate(180deg);
+
+        -moz-transition-duration: 800ms;
+        -moz-transform-origin: 50% 50%;
+        -moz-transform: rotate(180deg);
+
+        -o-transition-duration: 800ms;
+        -o-transform-origin: 50% 50%;
+        -o-transform: rotate(180deg);
+
+        transition-duration: 800ms;
+        transform-origin: 50% 50%;
+        transform: rotate(180deg);
+    }
+
+    #starting-hour, #starting-minute, #starting-sec{
+        position: absolute;
+        width: 740px; height: 740px;
+        -webkit-transform-origin: 50% 50%;
+        -moz-transform-origin: 50% 50%;
+        -o-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+    }
+
+    .hand{
+        position: absolute; 
+
+        -webkit-transform-origin: 50% -15px; 
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-iteration-count:infinite;
+        -webkit-animation-name: rotate;
+
+        -moz-transform-origin: 50% -15px; 
+        -moz-animation-timing-function: linear;
+        -moz-animation-iteration-count:infinite;
+        -moz-animation-name: rotate;
+
+        -o-transform-origin: 50% -15px; 
+        -o-animation-timing-function: linear;
+        -o-animation-iteration-count:infinite;
+        -o-animation-name: rotate;
+
+        transform-origin: 50% -15px; 
+        animation-timing-function: linear;
+        animation-iteration-count:infinite;
+        animation-name: rotate;
+
+        left: 328px; top: 385px; height: 260px; 
+    }
+
+        @-webkit-keyframes rotate {
+          from {-webkit-transform:rotate(0deg);}
+          to {  -webkit-transform:rotate(360deg);}
+        }
+
+        @-moz-keyframes rotate {
+          from {-moz-transform:rotate(0deg);}
+          to {  -moz-transform:rotate(360deg);}
+        }
+
+        @-o-keyframes rotate {
+          from {-o-transform:rotate(0deg);}
+          to {  -o-transform:rotate(360deg);}
+        }
+
+        @keyframes rotate {
+          from {transform:rotate(0deg);}
+          to {  transform:rotate(360deg);}
+        }
+
+        #hour-hand{
+            -webkit-animation-duration:216000s;
+            -moz-animation-duration:216000s;
+            -o-animation-duration:216000s;
+            animation-duration:216000s;
+            width: 75px; 
+            background: transparent url('../img/final/idle.png') no-repeat 0px -260px;
+        }
+        #minute-hand{
+            -webkit-animation-duration:3600s;
+            -moz-animation-duration:3600s;
+            -o-animation-duration:3600s;
+            animation-duration:3600s;
+            width: 75px;
+            background: transparent url('../img/final/idle.png') no-repeat 0px 0px;
+        }
+
+        #second-hand{
+            -webkit-animation-duration:60s;
+            -webkit-animation-duration:60s;
+            -moz-animation-duration:60s;
+            -o-animation-duration:60s;
+            animation-duration:60s;
+            width:165px;
+            left: 287px; 
+            -webkit-transition: opacity 200ms 500ms;
+            -moz-transition: opacity 200ms 500ms;
+            -o-transition: opacity 200ms 500ms;
+            transition: opacity 200ms 500ms;
+            opacity: 1;
+        }
+
+        #second-hand-2{
+            -webkit-animation-duration:60s;
+            -moz-animation-duration:60s;
+            -o-animation-duration:60s;
+            animation-duration:60s;
+            width:165px;
+            left: 287px; 
+            -webkit-transition: opacity 200ms 500ms;
+            -moz-transition: opacity 200ms 500ms;
+            -o-transition: opacity 200ms 500ms;
+            transition: opacity 200ms 500ms;
+            opacity: 0;
+        }
+
+        #second-hand.cape,
+        #second-hand-2.cape{background: transparent url('../img/final/cape.png') no-repeat;}
+        #second-hand.pockets,
+        #second-hand-2.pockets{background: transparent url('../img/final/pockets.png') no-repeat;}
+        #second-hand.yellowPants,
+        #second-hand-2.yellowPants{background: transparent url('../img/final/yellow_pant.png') no-repeat;}
+        #second-hand.blueSuit,
+        #second-hand-2.blueSuit{background: transparent url('../img/final/blue_suit.png') no-repeat;}
+        #second-hand.shortSkirt,
+        #second-hand-2.shortSkirt{background: transparent url('../img/final/short_skirt_v2.png') no-repeat;}
+
+
+    #preholders{        
+        position: absolute;
+        width: 100%; height: 100%;
+    }
+        .presquare{position: absolute; 
+            width: 70px; height: 380px; 
+            -webkit-transform-origin: 50% 100%;
+            -webkit-transition-duration: 400ms;
+            -moz-transform-origin: 50% 100%;
+            -moz-transition-duration: 400ms;
+            -o-transform-origin: 50% 100%;
+            -o-transition-duration: 400ms;
+            transform-origin: 50% 100%;
+            transition-duration: 400ms;
+            opacity: 1; 
+            background: white; 
+            left: 335px;}
+
+            .presquare.hide{opacity: 0;}
+
+
+    #email-signup{position: absolute;
+        -webkit-transition-duration: 800ms;
+        -moz-transition-duration: 800ms;
+        -o-transition-duration: 800ms;
+        transition-duration: 800ms;
+        width: 350px;
+        height: 350px;
+        left: 50%;
+        top: 50%;
+        margin-left: -175px;
+        margin-top: -175px;
+        border-radius: 50%;
+        background: #000;}
+
+        #email-signup.show{opacity: 1;}
+        #email-signup.hide{opacity: 0;}
+        #email-signup.kill{display: none;}
+
+        #email-signup .content{
+            width: 160px;
+            height: 160px;
+            left: 50px;
+            top: 50px;
+            position: relative;}
+
+        #email-logo{position: absolute; 
+            left: 50px; top: 65px; 
+            background-image: url('../img/mary-k-black.png');
+            /*width: 290px; height: 20px;*/
+            width: 145px; height: 10px;
+            -webkit-background-size: 145px 10px;
+            -moz-background-size: 145px 10px;
+            -o-background-size: 145px 10px;
+            background-size: 145px 10px;
+        }
+        #signup-txt{
+            position: absolute;
+            left: 50px; top: 80px; width: 150px;
+            text-align: center;
+            font-size: 11px; color: #FFF;
+        }
+        #signup-form{position: absolute; left: 45px; top: 95px; width: 160px; height: 100px;}
+            input.txt{position: absolute;
+                font-family: 'Georgia', 'Times New Roman', serif;
+                border: none; padding: 0px; 
+                height: 15px; 
+                font-size: 12px; 
+                text-align: center;
+                left: 0px; width: 160px;}
+            input#input-name{top: 15px;}
+            input#input-email{top: 45px;}
+            button#button-submit{position: absolute;
+                font-size: 12px; 
+                line-height: 28px;
+                font-family: 'adobe-caslon-pro', 'Georgia', 'Times New Roman', serif;
+                width: 30px; height: 30px; 
+                left: 50%; top: 90%; 
+                border-radius: 50%; 
+                border: none; margin-left: -16px;
+                background: #FFF;}
+
+
+    #email-thankyou{position: absolute;
+        -webkit-transition-duration: 800ms;
+        -moz-transition-duration: 800ms;
+        -o-transition-duration: 800ms;
+        transition-duration: 800ms;
+        width: 350px;
+        height: 350px;
+        left: 50%;
+        top: 50%;
+        margin-left: -175px;
+        margin-top: -175px;
+        border-radius: 50%;
+        background: #000;}
+
+        #email-thankyou.show{opacity: 1;}
+        #email-thankyou.hide{opacity: 0;}
+        #email-thankyou.kill{display: none;}
+
+        #email-thankyou .content{
+            width: 160px;
+            height: 160px;
+            left: 50px;
+            top: 50px;
+            position: relative;}
+
+        #thanks-logo{position: absolute; 
+            left: 50px; top: 65px; 
+            background-image: url('../img/mary-k-black.png');
+            /*width: 290px; height: 20px;*/
+            width: 145px; height: 10px;
+            -webkit-background-size: 145px 10px;
+            -moz-background-size: 145px 10px;
+            -o-background-size: 145px 10px;
+            background-size: 145px 10px;
+        }
+        #thanks-txt{
+            position: absolute;
+            left: -5px;
+            top: 100px;
+            width: 260px;
+            text-align: center;
+            font-size: 12px;
+            color: #FFF;
+        }
+
+            button#button-cancel{
+                position: relative;
+                font-family: 'adobe-caslon-pro', 'Georgia', 'Times New Roman', serif;
+                width: 20px; height: 20px; 
+                left: 225px; top: 0px;
+                line-height: 16px;
+                border-radius: 50%; 
+                border: none; margin-left: -16px;
+                background: #FFF;}
+
+  #embed-prompt{position: absolute;
+        -webkit-transition-duration: 800ms;
+        -moz-transition-duration: 800ms;
+        -o-transition-duration: 800ms;
+        transition-duration: 800ms;
+        width: 350px;
+        height: 350px;
+        left: 50%;
+        top: 50%;
+        margin-left: -175px;
+        margin-top: -175px;
+        border-radius: 50%;
+        background: #000;}
+
+        #embed-prompt.show{opacity: 1;}
+        #embed-prompt.hide{opacity: 0;}
+        #embed-prompt.kill{display: none;}
+
+        #embed-prompt .content{
+            width: 160px;
+            height: 160px;
+            left: 50px;
+            top: 50px;
+            position: relative;}
+
+        #embed-logo{position: absolute; 
+            left: 50px; top: 65px; 
+            background-image: url('../img/mary-k-black.png');
+            /*width: 290px; height: 20px;*/
+            width: 145px; height: 10px;
+            -webkit-background-size: 145px 10px;
+            -moz-background-size: 145px 10px;
+            -o-background-size: 145px 10px;
+            background-size: 145px 10px;
+        }
+        #embed-txt{
+            position: absolute;
+            left: 22px;
+            top: 80px;
+            width: 200px;
+            text-align: center;
+            font-size: 11px; color: #FFF;
+        }
+        #embed-form{position: absolute; left: 45px; top: 95px; width: 160px; height: 100px;}
+            textarea{position: absolute;
+            font-family: 'Georgia', 'Times New Roman', serif !important;
+            border: none;
+            padding: 7px;
+            height: 73px;
+            font-size: 12px;
+            line-height: 12px;
+            left: -35px;
+            width: 210px;
+            margin-top: 15px;}
+
+            button#embed-copy{
+              display:none;
+              position: absolute;
+                font-size: 12px; 
+                line-height: 30px;
+                font-family: 'adobe-caslon-pro', 'Georgia', 'Times New Roman', serif;
+                width: 30px; height: 30px; 
+                left: 50%; top: 90%; 
+                border-radius: 50%; 
+                border: none; margin-left: -16px;
+                background: #FFF;}
+
+            button#embed-cancel{
+                position: relative;
+                font-family: 'adobe-caslon-pro', 'Georgia', 'Times New Roman', serif;
+                width: 20px; height: 20px; 
+                left: 225px; top: 0px;
+                line-height: 16px;
+                border-radius: 50%; 
+                border: none; margin-left: -16px;
+                background: #FFF;}
+
+        #footer{
+            position: fixed; 
+            right: 0px; bottom: 0px; 
+            width: 90px; height: 90px;}
+        #footer.kill{display: none;}
+
+        #footer p{color: #FFF; text-align: center; margin-top: 42px; line-height: 20px; font-size: 20px;}
+
+        #embedded-logo{position: absolute; bottom: -8px; right: 17px;}
+        #embedded-logo.kill{display: none;}
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+
+}
+
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    *text-indent: -9999px;
+}
+
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+}
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+/* ==========================================================================
+   Print styles
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links for images, or javascript/internal links
+     */
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
