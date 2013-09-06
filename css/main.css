@@ -64,12 +64,12 @@ textarea {
 
    header{z-index: 10; position: fixed; width: 15px; height: 50px; padding: 5px;}
 
-   #play{
+   #mute{
     position: absolute;
     background: transparent url('../img/icons.png') no-repeat 3px 0px; 
     background-size: 30px 30px; text-indent: -9000px;
     width: 15px; height: 15px; margin-bottom: 5px;}
-   #mute{
+   #play{
     position: absolute;
     background: transparent url('../img/icons.png') no-repeat -15px 0px;
     background-size: 30px 30px; text-indent: -9000px;
