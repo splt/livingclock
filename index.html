@@ -98,7 +98,7 @@
 
         </div><!--/embed-prompt-->
 
-        <div id="not-supported" class="hide kill">
+        <div id="not-supported" style="display:none">
             <div id="not-supported-txt">
                 <p>This version of <span>your browser</span> is not supported.</p>
                 <p>Please upgrade and return back to the walking time.</p>
@@ -129,7 +129,7 @@
                 if(safari5 || ie9) {
                   console.log('browser:', BrowserDetect.browser, BrowserDetect.version, BrowserDetect.OS);
                   console.log($);
-                  $('not-supported').className = '';
+                  $('not-supported').style.display = 'block';
                   $('hands').style.display = 'none'; 
                   $('header').style.display = 'none'; 
                 }
