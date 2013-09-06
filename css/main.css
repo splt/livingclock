@@ -62,7 +62,7 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-   header{z-index: 10; position: fixed; width: 15px; height: 50px; padding: 0px; left:10px; top: 15px;}
+   header{z-index: 10; position: fixed; width: 15px; height: 50px; padding: 5px;}
 
    #play{
     position: absolute;
@@ -71,9 +71,9 @@ textarea {
     width: 15px; height: 15px; margin-bottom: 5px;}
    #mute{
     position: absolute;
-    background: transparent url('../img/icons.png') no-repeat -12px 0px;
+    background: transparent url('../img/icons.png') no-repeat -15px 0px;
     background-size: 30px 30px; text-indent: -9000px;
-    width: 18px; height: 15px; margin-bottom: 5px;}
+    width: 15px; height: 15px; margin-bottom: 5px;}
 
         #play, #mute{
         -webkit-transition-duration: 800ms;
@@ -84,7 +84,7 @@ textarea {
         #play.kill,#mute.kill{display: none;}
 
    #embed{
-    position: absolute; top: 25px; left: 2px;
+    position: absolute; top: 25px;
     background: transparent url('../img/icons.png') no-repeat 0px -15px;
     background-size: 30px 30px; text-indent: -9000px;
     width: 20px; height: 15px; margin-bottom: 5px;}
@@ -399,7 +399,8 @@ textarea {
             top: 100px;
             width: 260px;
             text-align: center;
-            font-size: 12px;
+            font-size: 20px;
+            letter-spacing: -1px;
             color: #FFF;
         }
 
@@ -408,7 +409,7 @@ textarea {
                 font-family: 'adobe-caslon-pro', 'Georgia', 'Times New Roman', serif;
                 width: 20px; height: 20px; 
                 left: 225px; top: 0px;
-                line-height: 16px;
+                line-height: 20px;
                 border-radius: 50%; 
                 border: none; margin-left: -16px;
                 background: #FFF;}
@@ -450,9 +451,7 @@ textarea {
         }
         #embed-txt{
             position: absolute;
-            left: 22px;
-            top: 80px;
-            width: 200px;
+            left: 50px; top: 80px; width: 150px;
             text-align: center;
             font-size: 11px; color: #FFF;
         }
@@ -469,8 +468,8 @@ textarea {
             margin-top: 15px;}
 
             button#embed-copy{
-              display:none;
-              position: absolute;
+                display:none;
+                position: absolute;
                 font-size: 12px; 
                 line-height: 30px;
                 font-family: 'adobe-caslon-pro', 'Georgia', 'Times New Roman', serif;
@@ -481,14 +480,31 @@ textarea {
                 background: #FFF;}
 
             button#embed-cancel{
-                position: relative;
+                position: absolute;
                 font-family: 'adobe-caslon-pro', 'Georgia', 'Times New Roman', serif;
-                width: 20px; height: 20px; 
-                left: 225px; top: 0px;
-                line-height: 16px;
+                width: 21px; height: 21px; 
+                left: 120%; top: -80%; 
+                line-height: 20px;
                 border-radius: 50%; 
                 border: none; margin-left: -16px;
                 background: #FFF;}
+
+
+    #not-supported{
+        position: absolute;
+        background: url('../img/maryk-circle.png') no-repeat;
+        background-size: 305px 305px;
+        width: 305px;
+        height: 305px;
+        left: 50%;
+        top: 50%;
+        margin-left: -155px;
+        margin-top: -155px;
+    }
+        #not-supported-txt{position: absolute;
+            left: 75px; top: 125px; width: 150px;
+            text-align: center;
+            font-size: 11px; color: #FFF;}
 
         #footer{
             position: fixed; 

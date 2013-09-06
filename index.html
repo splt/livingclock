@@ -26,7 +26,7 @@
 
 <header>
     <div id="play" class="hide kill">♪</div>
-    <div id="mute" class="hide kill">⦰</div>
+    <div id="mute" class="show">⦰</div>
     <div id="embed" class="show">&lt;/&gt;</div>
 </header>
     <div id="content" class="loading">
@@ -87,17 +87,23 @@
 
             <div class="content">
                 <div id="embed-logo"></div>
-                <div id="embed-txt">Post the Walking Time on your own site:</div>
+                <div id="embed-txt">Share the Walking Time:</div>
                 <form id="embed-form">
                     <textarea id="text-area"><iframe src="http://jmichaliga.com/clients/maryk/livingclock-8-29/index.html?embed" width="300" height="300" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
                     </textarea>
                     <button value="copy" id="embed-copy" type="button">copy</button>
+                    <button value="x" id="embed-cancel" type="button">x</button>
                 </form>
-                <button value="x" id="embed-cancel" type="button">x</button>
             </div><!--/.content-->
 
         </div><!--/embed-prompt-->
 
+        <div id="not-supported" class="hide kill">
+            <div id="not-supported-txt">
+                <p>This version of <span>your browser</span> is not supported.</p>
+                <p>Please upgrade and return back to the walking time.</p>
+            </div>
+        </div><!--/not-supported-->
 
         </div><!--/clock-face-->
 
@@ -115,7 +121,18 @@
 
         <script src="js/main.js"></script>
         <script>
+
             window.addEventListener('load', function(){
+                
+                var safari5 = BrowserDetect.browser == 'Safari' && BrowserDetect.version <= 5;
+                var ie9 = BrowserDetect.browser == 'MSIE' && BrowserDetect.version <= 9;
+                if(safari5 || ie9) {
+                  console.log('browser:', BrowserDetect.browser, BrowserDetect.version, BrowserDetect.OS);
+                  console.log($);
+                  $('not-supported').className = '';
+                  $('hands').style.display = 'none'; 
+                  $('header').style.display = 'none'; 
+                }
                 presquare();
                 window.addEventListener('resize', setContent);
             }, false);
