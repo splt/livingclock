@@ -36,9 +36,9 @@
 		var audio = false;
 		var embedded = location.search == '?embed';
 		var thanks = location.hash == '#thankyou';
+		var oAngles = [0,0];
 
 		var $ = function(id){return document.getElementById(id);};
-		var iOS = ( navigator.userAgent.match(/(iPad|iPhone|iPod)/i) ? true : false );
 
 		var createCookie = function(name,value,days) {
 			if (days) {
@@ -102,26 +102,19 @@
 				var contentElement = document.getElementById('content');
 				var contentHeight = contentElement.offsetHeight;
 
-				// if (windowHeight - contentHeight > 0) {
-				// 	contentElement.style.position = 'relative';
-				// 	contentElement.style.top = ((windowHeight / 2) - (contentHeight / 2) -150) + 'px';
-				// }
-				// else {
-					contentElement.style.position = 'static';
-					var xOffset = ( window.innerWidth < 740 ? getWindowWidth()/2 : 0);
-					//console.log(window.innerWidth, contentElement, xOffset);
-					contentElement.style.margin = '0px 0px 0px -'+(xOffset)+'px';
-				//}
+				contentElement.style.position = 'static';
+				var xOffset = ( window.innerWidth < 740 ? getWindowWidth()/2 : 0);
+				contentElement.style.margin = '0px 0px 0px -'+(xOffset)+'px';
 
 				var yRatio = windowHeight/contentHeight;
-				if(yRatio < 1 && !iOS){
+				if(yRatio < 1 && !BrowserDetect.OS == 'iPhone/iPod' ){
 					console.log('cT: ', windowHeight, contentHeight, yRatio);
 					var yOffset = ((contentHeight * yRatio) / 2);
 					contentElement.style.webkitTransform = 'scale('+yRatio+')';
 					contentElement.style.mozTransform = 'scale('+yRatio+')';
 					contentElement.style.oTransform = 'scale('+yRatio+')';
 					contentElement.style.transform = 'scale('+yRatio+')';
-				}else if(iOS){
+				}else if(BrowserDetect.OS == 'iPhone/iPod'){
 					contentElement.style.webkitTransform = 'scale(0.5) translate3d('+xOffset+'px, 100px,0)';
 				}else{
 					contentElement.style.webkitTransform = 'scale(1)';
@@ -130,19 +123,6 @@
 					contentElement.style.transform = 'scale(1)';
 					contentElement.style.marginTop = ((windowHeight / 2) - (contentHeight / 2) ) + 'px';
 				}
-
-				// var windowWidth = getWindowWidth();
-				// var contentWidth = contentElement.offsetWidth;
-
-				// var xRatio = contentWidth/windowWidth;
-				// if(xRatio < 1){
-				// 	console.log('xScale', xRatio);
-				// 	var xOffset = 0;
-				// 	contentElement.style.webkitTransform = 'scale('+xRatio+')';
-				// }else{
-				// 	contentElement.style.webkitTransform = 'scale(1)';
-				// 	contentElement.style.marginTop = '0px';
-				// }
 
 			}
 		},
@@ -162,7 +142,7 @@
 				'final/pockets.png',
 				'final/short_skirt_v2.png',
 				'final/yellow_pant.png'];
-			var audio = ['Footstep_v8.mp3'];
+			var audio = ['Footstep_v8.mp3', 'ding.mp3'];
 			var loaded = [];
 			var percentage = 0;
 			var p = 1;
@@ -334,6 +314,7 @@
 							walking.active = 1;
 							walking2.active = 0;				
 						}
+						setTimeout(soundGong,500);
 					}
 				}, 1000);
 
@@ -346,20 +327,26 @@
 				$('embedded-logo').className = 'kill';
 			}
 
-			// if(window.location.search[0] == '?'){
-			// 	var aniSecs =  window.location.search.replace('?','')+'s';
-			// 	console.log(aniSecs);
-			// 	$ss.style.webkitAnimationDuration = (aniSecs ? aniSecs : '30s');
-			// }
-
-
-			startClock($ss, $sm, $shr);
 			startAudio();
 			setContent();
 
+			//check to see if webkit browsers have visibility change events, if not run on an interval every minute
+			document.addEventListener("webkitvisibilitychange", function(ev){
+				if(document.webkitHidden){
+					startClock($ss, $sm, $shr);
+					console.log('reset clock...');
+				}else{
+					console.log('did not reset clock...');
+				}
+			}, false);
+
+			if(document.webkitHidden == 'undefined'){
+				setInterval(function(){
+					startClock($ss, $sm, $shr);
+				},60000);
+			}
 
 			// Check for Cookies - if not nor an embed, get users to sign up for emails
-
 			var c = readCookie('marykcookie');
 
 			if(thanks){
@@ -394,7 +381,6 @@
 			// Copy to Clipboard if on site
 			var $e = $('embed');
 			$ep = $('embed-prompt');
-			$ec = $('embed-copy');
 			$eca = $('embed-cancel');
 			$ta = $('text-area');
 
@@ -403,20 +389,27 @@
 					$ep.className = 'show';
 				});
 
-				$ep.addEventListener('click', function(){
-					var text = $ta.innerText;
-				});
-
 				$eca.addEventListener('click', function(){
 					$ep.className = 'hide';
 					setTimeout(function(){$ep.className = 'hide kill';}, 1000); // prevent focusing on input elements
 				});
 			}
 		},
+		soundGong = function(){
+			if(!($('gong'))){
+				var g = document.createElement('audio');
+				g.src = (BrowserDetect.browser == 'Firefox'  ? 'ding.ogg' : 'ding.mp3');
+				g.id = 'gong';
+				document.body.appendChild(g);
+				g.play();
+			}else{
+				$('gong').play();
+			}
+		},
 		startAudio = function(){
 			if(!audio){
 				var a = document.createElement('audio');
-				a.src = (navigator.userAgent.indexOf("Firefox")!=-1 ? 'Footstep_v9.ogg' : 'Footstep_v7.mp3');
+				a.src = (BrowserDetect.browser == 'Firefox' ? 'Footstep_v9.ogg' : 'Footstep_v7.mp3');
 				document.body.appendChild(a);
 				a.addEventListener('ended', rm = function(){loopAudio(a);}, false);
 				a.play();
@@ -444,7 +437,7 @@
 			//setTimeout(function(){
 				audio.play();
 			//},108);
-			console.log('diff: ', diff);
+			//console.log('diff: ', diff);
 		},
 		startClock = function($ss, $sm, $shr) {
 		        var angle = 360/60;
@@ -457,6 +450,7 @@
 		        var minute = date.getMinutes();
 		        var second = date.getSeconds();
 		        var hourAngle = (360/12)*hour + (360/(12*60))*minute;
+		        var minuteAngle = angle*minute;
 
 		        /*
 					15: 90
@@ -465,24 +459,32 @@
 					60: 360
 		        */
 
+				// for clock resets, take diff of original angles.
+		        hourAngle -= oAngles[0];
+		        minuteAngle -= oAngles[1];
+
 		        console.log("h:",hour, hourAngle);
-		        console.log("m:",minute, angle*minute);
+		        console.log("m:",minute, minuteAngle);
 		        console.log("s:",second, angle*second);
 
+		        oAngles = [hourAngle, minuteAngle];
+
+		        console.log('oAngles:', oAngles);
+
 				$ss.style.webkitTransform = 'rotate('+((angle*second)-offset)+'deg)';
-				$sm.style.webkitTransform = 'scale(1.025) rotate('+(angle*minute)+'deg)';
+				$sm.style.webkitTransform = 'scale(1.025) rotate('+(minuteAngle)+'deg)';
 				$shr.style.webkitTransform = 'scale(1.025) rotate('+(hourAngle)+'deg)';
 
 				$ss.style.mozTransform = 'rotate('+((angle*second)-offset)+'deg)';
-				$sm.style.mozTransform = 'scale(1.025) rotate('+(angle*minute)+'deg)';
+				$sm.style.mozTransform = 'scale(1.025) rotate('+(minuteAngle)+'deg)';
 				$shr.style.mozTransform = 'scale(1.025) rotate('+(hourAngle)+'deg)';
 
 				$ss.style.oTransform = 'rotate('+((angle*second)-offset)+'deg)';
-				$sm.style.oTransform = 'scale(1.025) rotate('+(angle*minute)+'deg)';
+				$sm.style.oTransform = 'scale(1.025) rotate('+(minuteAngle)+'deg)';
 				$shr.style.oTransform = 'scale(1.025) rotate('+(hourAngle)+'deg)';
 
 				$ss.style.transform = 'rotate('+((angle*second)-offset)+'deg)';
-				$sm.style.transform = 'scale(1.025) rotate('+(angle*minute)+'deg)';
+				$sm.style.transform = 'scale(1.025) rotate('+(minuteAngle)+'deg)';
 				$shr.style.transform = 'scale(1.025) rotate('+(hourAngle)+'deg)';
 
 		},
