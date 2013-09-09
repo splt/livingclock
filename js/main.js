@@ -107,7 +107,7 @@
 				contentElement.style.margin = '0px 0px 0px -'+(xOffset)+'px';
 
 				var yRatio = windowHeight/contentHeight;
-				if(yRatio < 1 && !BrowserDetect.OS == 'iPhone/iPod' ){
+				if(yRatio < 1 && BrowserDetect.OS != 'iPhone/iPod' ){
 					console.log('cT: ', windowHeight, contentHeight, yRatio);
 					var yOffset = ((contentHeight * yRatio) / 2);
 					contentElement.style.webkitTransform = 'scale('+yRatio+')';
@@ -328,7 +328,7 @@
 			}
 
 			startAudio();
-			setContent();
+			//setContent();
 
 			//check to see if webkit browsers have visibility change events, if not run on an interval every minute
 			document.addEventListener("webkitvisibilitychange", function(ev){
