@@ -36,7 +36,7 @@
 		var audio = false;
 		var embedded = location.search == '?embed';
 		var thanks = location.hash == '#thankyou';
-		var oAngles = [0,0];
+		var oAngles = [0,0,0];
 
 		var $ = function(id){return document.getElementById(id);};
 
@@ -328,16 +328,10 @@
 			}
 
 			startAudio();
-			//setContent();
 
 			//check to see if webkit browsers have visibility change events, if not run on an interval every minute
 			document.addEventListener("webkitvisibilitychange", function(ev){
-				if(document.webkitHidden){
 					startClock($ss, $sm, $shr);
-					console.log('reset clock...');
-				}else{
-					console.log('did not reset clock...');
-				}
 			}, false);
 
 			if(document.webkitHidden == 'undefined'){
@@ -451,6 +445,7 @@
 		        var second = date.getSeconds();
 		        var hourAngle = (360/12)*hour + (360/(12*60))*minute;
 		        var minuteAngle = angle*minute;
+		        var secondAngle = angle*second;
 
 		        /*
 					15: 90
@@ -462,28 +457,29 @@
 				// for clock resets, take diff of original angles.
 		        hourAngle -= oAngles[0];
 		        minuteAngle -= oAngles[1];
+		        secondAngle -= oAngles[2];
 
 		        console.log("h:",hour, hourAngle);
 		        console.log("m:",minute, minuteAngle);
 		        console.log("s:",second, angle*second);
 
-		        oAngles = [hourAngle, minuteAngle];
+		        oAngles = [hourAngle, minuteAngle, secondAngle];
 
 		        console.log('oAngles:', oAngles);
 
-				$ss.style.webkitTransform = 'rotate('+((angle*second)-offset)+'deg)';
+				$ss.style.webkitTransform = 'rotate('+((secondAngle)-offset)+'deg)';
 				$sm.style.webkitTransform = 'scale(1.025) rotate('+(minuteAngle)+'deg)';
 				$shr.style.webkitTransform = 'scale(1.025) rotate('+(hourAngle)+'deg)';
 
-				$ss.style.mozTransform = 'rotate('+((angle*second)-offset)+'deg)';
+				$ss.style.mozTransform = 'rotate('+((secondAngle)-offset)+'deg)';
 				$sm.style.mozTransform = 'scale(1.025) rotate('+(minuteAngle)+'deg)';
 				$shr.style.mozTransform = 'scale(1.025) rotate('+(hourAngle)+'deg)';
 
-				$ss.style.oTransform = 'rotate('+((angle*second)-offset)+'deg)';
+				$ss.style.oTransform = 'rotate('+((secondAngle)-offset)+'deg)';
 				$sm.style.oTransform = 'scale(1.025) rotate('+(minuteAngle)+'deg)';
 				$shr.style.oTransform = 'scale(1.025) rotate('+(hourAngle)+'deg)';
 
-				$ss.style.transform = 'rotate('+((angle*second)-offset)+'deg)';
+				$ss.style.transform = 'rotate('+((secondAngle)-offset)+'deg)';
 				$sm.style.transform = 'scale(1.025) rotate('+(minuteAngle)+'deg)';
 				$shr.style.transform = 'scale(1.025) rotate('+(hourAngle)+'deg)';
 
