@@ -314,7 +314,7 @@
 							walking.active = 1;
 							walking2.active = 0;				
 						}
-						setTimeout(soundGong,500);
+						//setTimeout(soundGong,500);
 					}
 				}, 1000);
 
