@@ -80,15 +80,21 @@ textarea {
     position: absolute; top: 25px;
     background: transparent url('../img/icons.png') no-repeat 0px -15px;
     background-size: 30px 30px; text-indent: -9000px;
+    width: 16px; height: 15px; margin-bottom: 5px;}
+   #email{
+    position: absolute; top: 43px;
+    background: transparent url('../img/icons.png') no-repeat -16px -15px;
+    background-size: 30px 30px; text-indent: -9000px;
     width: 20px; height: 15px; margin-bottom: 5px;}
 
-        #play, #mute{
+        #play, #mute, #embed, #email{
         -webkit-transition-duration: 800ms;
         -moz-transition-duration: 800ms;
         -o-transition-duration: 800ms;
         transition-duration: 800ms;}
-        #play.hide,#mute.hide{opacity: 0;}
-        #play.kill,#mute.kill,#embed.kill{display: none;}
+        #play.show,#mute.show,#embed.show,#email.show{opacity: 1;}
+        #play.hide,#mute.hide,#embed.hide,#email.hide{opacity: 0;}
+        #play.kill,#mute.kill,#embed.kill,#email.kill{display: none;}
 
 
 

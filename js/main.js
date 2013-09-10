@@ -369,6 +369,17 @@
 					$ep.className = 'show';
 				});
 
+				$('email').addEventListener('click', function(){
+					if($es.className == 'show'){
+						$es.className = 'hide';
+						setTimeout(function(){$es.className = 'hide kill';}, 1000); 
+					}else{
+						$es.className = 'hide';
+						$es.className = 'show';
+					}
+
+				});
+
 				$eca.addEventListener('click', function(){
 					$ep.className = 'hide';
 					setTimeout(function(){$ep.className = 'hide kill';}, 1000); // prevent focusing on input elements
