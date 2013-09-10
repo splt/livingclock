@@ -365,7 +365,7 @@ textarea {
                 input#input-email.txt.error{border: 1px solid red; color: red; background: #FEE;}
             button#button-submit{position: absolute;
                 font-size: 12px; 
-                line-height: 32px;
+                line-height: 31px;
                 text-indent: -1px;
                 font-family: 'adobe-caslon-pro', 'Georgia', 'Times New Roman', serif;
                 width: 30px; height: 30px; 
