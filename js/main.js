@@ -103,12 +103,14 @@
 				var contentHeight = contentElement.offsetHeight;
 
 				contentElement.style.position = 'static';
-				var xOffset = ( window.innerWidth < 740 ? getWindowWidth()/2 : 0);
+				var xOffset = ( window.innerWidth < 740 ? (getWindowWidth()/2) : 0);
+
+				if(embedded){$('embed').className = 'kill'; xOffset-=20;}
 				contentElement.style.margin = '0px 0px 0px -'+(xOffset)+'px';
 
 				var yRatio = windowHeight/contentHeight;
 				if(yRatio < 1 && BrowserDetect.OS != 'iPhone/iPod' ){
-					console.log('cT: ', windowHeight, contentHeight, yRatio);
+					//console.log('cT: ', windowHeight, contentHeight, yRatio);
 					var yOffset = ((contentHeight * yRatio) / 2);
 					contentElement.style.webkitTransform = 'scale('+yRatio+')';
 					contentElement.style.mozTransform = 'scale('+yRatio+')';
@@ -279,9 +281,6 @@
 				walking.id.className = 'hand '+ dresses[curDress];
 				walking2.id.className = 'hand '+ dresses[curDress];
 
-				console.log('cD:', curDress, dresses[curDress]);
-				console.log('embedded: ', embedded);
-
 				var tick = setInterval(function(){
 					imgSeq(idle1);
 					imgSeq(idle2);
@@ -295,10 +294,10 @@
 					if(sec == 55){
 						curDress = (curDress + 1) % dresses.length;
 						if(!walking.active){
-							console.log(walking, 'switched to '+ dresses[curDress]);
+							//console.log(walking, 'switched to '+ dresses[curDress]);
 							walking.id.className = 'hand '+ dresses[curDress];
 						}else if(!walking2.active){
-							console.log(walking2, 'switched to '+dresses[curDress]);
+							//console.log(walking2, 'switched to '+dresses[curDress]);
 							walking2.id.className = 'hand '+ dresses[curDress];
 						}
 					}
@@ -368,7 +367,7 @@
 				});
 
 			}else{
-				console.log(c);
+				// console.log(c);
 			}
 
 
@@ -459,13 +458,13 @@
 		        minuteAngle -= oAngles[1];
 		        secondAngle -= oAngles[2];
 
-		        console.log("h:",hour, hourAngle);
-		        console.log("m:",minute, minuteAngle);
-		        console.log("s:",second, angle*second);
+		        // console.log("h:",hour, hourAngle);
+		        // console.log("m:",minute, minuteAngle);
+		        // console.log("s:",second, angle*second);
 
 		        oAngles = [hourAngle, minuteAngle, secondAngle];
 
-		        console.log('oAngles:', oAngles);
+		        // console.log('oAngles:', oAngles);
 
 				$ss.style.webkitTransform = 'rotate('+((secondAngle)-offset)+'deg)';
 				$sm.style.webkitTransform = 'scale(1.025) rotate('+(minuteAngle)+'deg)';
@@ -535,6 +534,38 @@
 			obj.id.style.backgroundPosition = '-'+(obj.curCol * obj.width)+'px -'+obj.curRow * obj.height+'px';
 			return true; 
 		};
+
+
+var keys = [37, 38, 39, 40];
+
+function preventDefault(e) {
+  e = e || window.event;
+  if (e.preventDefault)
+      e.preventDefault();
+  e.returnValue = false;  
+}
+
+function keydown(e) {
+    for (var i = keys.length; i--;) {
+        if (e.keyCode === keys[i]) {
+            preventDefault(e);
+            return;
+        }
+    }
+}
+
+function wheel(e) {
+  preventDefault(e);
+}
+
+function disable_scroll() {
+  if (window.addEventListener) {
+      window.addEventListener('DOMMouseScroll', wheel, false);
+  }
+  window.onmousewheel = document.onmousewheel = wheel;
+  document.onkeydown = keydown;
+}
+disable_scroll();
 
 var BrowserDetect = {
     init: function () {
