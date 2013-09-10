@@ -330,7 +330,7 @@
 
 			//check to see if webkit browsers have visibility change events, if not run on an interval every minute
 			document.addEventListener("webkitvisibilitychange", function(ev){
-					startClock($ss, $sm, $shr);
+				startClock($ss, $sm, $shr);
 			}, false);
 
 			if(document.webkitHidden == 'undefined'){
@@ -351,23 +351,10 @@
 			
 			if(!c && !embedded){
 				$es.className = 'show';
-
-				$bs.addEventListener('click', function(){
-					$es.className = 'hide';
-					
-					var iName = escape($('input-name').value);
-					var iEmail = escape($('input-email').value);
-
-					$('input-name').blur();
-					$('input-email').blur();
-
-					setTimeout(function(){$es.className = 'hide kill';}, 1000); // prevent focusing on input elements
-
-					createCookie('marykcookie','name:'+iName+'-email:'+iEmail,7);
-				});
-
+				console.log(c, embedded);
+				$bs.addEventListener('click', validateEmail);
 			}else{
-				// console.log(c);
+				console.log(c);
 			}
 
 
@@ -533,6 +520,30 @@
 
 			obj.id.style.backgroundPosition = '-'+(obj.curCol * obj.width)+'px -'+obj.curRow * obj.height+'px';
 			return true; 
+		},
+		validateEmail = function(){
+			var $es = $('email-signup');
+			var email = $('input-email').value;
+			var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+			var valid = re.test(email);
+
+			if(valid){
+				$es.className = 'hide';
+				
+				var iName = escape($('input-name').value);
+				var iEmail = escape($('input-email').value);
+
+				$('input-name').blur();
+				$('input-email').blur();
+
+				setTimeout(function(){$es.className = 'hide kill';}, 1000); // prevent focusing on input elements
+
+				createCookie('marykcookie','name:'+iName+'-email:'+iEmail,7);
+			}else{
+				$('input-email').className = 'txt error';
+			}
+
+			return valid;
 		};
 
 
