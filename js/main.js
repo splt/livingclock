@@ -160,6 +160,7 @@
 
 			if(thanks){
 				$('email-thankyou').className = 'show';
+				$('email-signup').className = 'kill';
 			}
 
 			for(var i=0; i<=imgs.length-1; i++){
@@ -349,7 +350,7 @@
 				});
 			}
 			
-			if(!c && !embedded){
+			if(!c && !embedded && !thanks){
 				$es.className = 'show';
 				console.log(c, embedded);
 				$bs.addEventListener('click', validateEmail);
