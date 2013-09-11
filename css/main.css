@@ -73,7 +73,7 @@ textarea {
     width: 15px; height: 15px; margin-bottom: 5px;}
    #play{
     position: absolute;
-    background: transparent url('../img/icons.png') no-repeat -15px 0px;
+    background: transparent url('../img/icons.png') no-repeat -12px 0px;
     background-size: 30px 30px; text-indent: -9000px;
     width: 15px; height: 15px; margin-bottom: 5px;}
    #embed{
