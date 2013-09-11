@@ -365,7 +365,7 @@ textarea {
                 input#input-email.txt.error{border: 1px solid red; color: red; background: #FEE;}
             button#button-submit{position: absolute;
                 font-size: 12px; 
-                line-height: 31px;
+                line-height: 32px;
                 text-indent: -1px;
                 font-family: 'adobe-caslon-pro', 'Georgia', 'Times New Roman', serif;
                 width: 30px; height: 30px; 
@@ -432,7 +432,7 @@ textarea {
                 font-family: 'adobe-caslon-pro', 'Georgia', 'Times New Roman', serif;
                 width: 20px; height: 20px; 
                 left: 225px; top: 0px;
-                line-height: 18px;
+                line-height: 16px;
                 border-radius: 50%; 
                 border: none; margin-left: -16px;
                 background: #FFF;}
@@ -508,11 +508,11 @@ textarea {
                 background: #FFF;}
 
             button#embed-cancel{
-                position: absolute;
+                position: relative;
                 font-family: 'adobe-caslon-pro', 'Georgia', 'Times New Roman', serif;
-                width: 21px; height: 21px; 
-                left: 120%; top: -80%; 
-                line-height: 20px;
+                width: 20px; height: 20px; 
+                left: 225px; top: 0px;
+                line-height: 16px;
                 border-radius: 50%; 
                 border: none; margin-left: -16px;
                 background: #FFF;}
