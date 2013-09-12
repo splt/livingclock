@@ -331,19 +331,20 @@ textarea {
             position: relative;}
 
         #email-logo{position: absolute; 
-            left: 55px; top: 55px; 
-            background-image: url('../img/mary-k-black.png');
+            left: 18px; top: 53px; 
+            background-image: url('../img/mary-k-black@2x.png');
+            background-repeat: no-repeat;
             /*width: 290px; height: 20px;*/
-            width: 145px; height: 10px;
-            -webkit-background-size: 145px 10px;
-            -moz-background-size: 145px 10px;
-            -o-background-size: 145px 10px;
-            background-size: 145px 10px;
+            width: 217px; height: 15px;
+            -webkit-background-size: 217px 15px;
+            -moz-background-size: 217px 15px;
+            -o-background-size: 217px 1015px;
+            background-size: 217px 15px;
 
-            -webkit-transform: scale(1.5);
+        /*    -webkit-transform: scale(1.5);
             -moz-transform: scale(1.5);
             -o-transform: scale(1.5);
-            transform: scale(1.5);
+            transform: scale(1.5);*/
         }
         #signup-txt{
             position: absolute;
@@ -402,19 +403,20 @@ textarea {
             position: relative;}
 
         #thanks-logo{position: absolute; 
-            left: 55px; top: 55px; 
-            background-image: url('../img/mary-k-black.png');
+            left: 18px; top: 53px; 
+            background-image: url('../img/mary-k-black@2x.png');
+            background-repeat: no-repeat;
             /*width: 290px; height: 20px;*/
-            width: 145px; height: 10px;
-            -webkit-background-size: 145px 10px;
-            -moz-background-size: 145px 10px;
-            -o-background-size: 145px 10px;
-            background-size: 145px 10px;
+            width: 217px; height: 15px;
+            -webkit-background-size: 217px 15px;
+            -moz-background-size: 217px 15px;
+            -o-background-size: 217px 1015px;
+            background-size: 217px 15px;
 
-            -webkit-transform: scale(1.5);
+        /*    -webkit-transform: scale(1.5);
             -moz-transform: scale(1.5);
             -o-transform: scale(1.5);
-            transform: scale(1.5);
+            transform: scale(1.5);*/
         }
         #thanks-txt{
             position: absolute;
@@ -465,19 +467,20 @@ textarea {
             position: relative;}
 
         #embed-logo{position: absolute; 
-            left: 55px; top: 55px; 
-            background-image: url('../img/mary-k-black.png');
+            left: 18px; top: 53px; 
+            background-image: url('../img/mary-k-black@2x.png');
+            background-repeat: no-repeat;
             /*width: 290px; height: 20px;*/
-            width: 145px; height: 10px;
-            -webkit-background-size: 145px 10px;
-            -moz-background-size: 145px 10px;
-            -o-background-size: 145px 10px;
-            background-size: 145px 10px;
+            width: 217px; height: 15px;
+            -webkit-background-size: 217px 15px;
+            -moz-background-size: 217px 15px;
+            -o-background-size: 217px 1015px;
+            background-size: 217px 15px;
 
-            -webkit-transform: scale(1.5);
+        /*    -webkit-transform: scale(1.5);
             -moz-transform: scale(1.5);
             -o-transform: scale(1.5);
-            transform: scale(1.5);
+            transform: scale(1.5);*/
         }
         #embed-txt{
             position: absolute;
