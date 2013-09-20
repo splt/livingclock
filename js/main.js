@@ -364,11 +364,18 @@
 			$ep = $('embed-prompt');
 			$eca = $('embed-cancel');
 			$ta = $('text-area');
+			$infobtn = $('info-button');
+			info = document.getElementById('email-info');
+			$contactbtn = $('contact-button');
+			contact = document.getElementById('email-contact');
+			infoclose = document.getElementById('close-info');
+			contactclose = document.getElementById('close-contact');
 
 			if(!embedded){
 				$e.addEventListener('click', function(){
 					$ep.className = 'show';
 				});
+
 
 				$('email').addEventListener('click', function(){
 					if($es.className == 'show'){
@@ -378,7 +385,36 @@
 						$es.className = 'hide';
 						$es.className = 'show';
 					}
+				});
 
+				$infobtn.addEventListener('click', function(){
+					if(info.className == 'show'){
+						info.className = 'hide';
+						setTimeout(function(){info.className = 'hide kill';}, 1000); 
+					}else{
+						info.className = 'show';
+					}
+				});
+				infoclose.addEventListener('click', function(){
+					if(info.className == 'show'){
+						info.className = 'hide';
+						setTimeout(function(){info.className = 'hide kill';}, 1000); 
+					}else{}
+				});
+
+				$contactbtn.addEventListener('click', function(){
+					if(contact.className == 'show'){
+						contact.className = 'hide';
+						setTimeout(function(){contact.className = 'hide kill';}, 1000); 
+					}else{
+						contact.className = 'show';
+					}
+				});
+				contactclose.addEventListener('click', function(){
+					if(contact.className == 'show'){
+						contact.className = 'hide';
+						setTimeout(function(){contact.className = 'hide kill';}, 1000); 
+					}else{}
 				});
 
 				$eca.addEventListener('click', function(){

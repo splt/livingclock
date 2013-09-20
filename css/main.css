@@ -64,37 +64,70 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-   header{z-index: 10; position: fixed; width: 15px; height: 50px; padding: 5px;}
+   header{z-index: 10; position: fixed; width: 15px; height: 55px; padding: 5px; left:20px;}
 
    #mute{
     position: absolute;
     background: transparent url('../img/icons.png') no-repeat 3px 0px; 
-    background-size: 30px 30px; text-indent: -9000px;
-    width: 15px; height: 15px; margin-bottom: 5px;}
+    background-size: 27px; text-indent: -9000px;
+    width: 14px;
+    height: 12px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    }
    #play{
     position: absolute;
     background: transparent url('../img/icons.png') no-repeat -12px 0px;
-    background-size: 30px 30px; text-indent: -9000px;
-    width: 15px; height: 15px; margin-bottom: 5px;}
+    background-size: 27px; text-indent: -9000px;
+    width: 15px; height: 13px; margin-bottom: 5px;
+    cursor: pointer;
+    }
    #embed{
     position: absolute; top: 25px;
-    background: transparent url('../img/icons.png') no-repeat 0px -15px;
-    background-size: 30px 30px; text-indent: -9000px;
-    width: 16px; height: 15px; margin-bottom: 5px;}
+    background: transparent url('../img/icons.png') no-repeat 0px -12px;
+    background-size: 27px; text-indent: -9000px;
+    width: 15px; height: 17px; margin-bottom: 5px;margin-top: 3px;
+    cursor: pointer;
+    }
+
    #email{
     position: absolute; top: 43px;
     background: transparent url('../img/icons.png') no-repeat -16px -15px;
     background-size: 30px 30px; text-indent: -9000px;
     width: 20px; height: 15px; margin-bottom: 5px;}
 
-        #play, #mute, #embed, #email{
-        -webkit-transition-duration: 800ms;
-        -moz-transition-duration: 800ms;
-        -o-transition-duration: 800ms;
-        transition-duration: 800ms;}
-        #play.show,#mute.show,#embed.show,#email.show{opacity: 1;}
-        #play.hide,#mute.hide,#embed.hide,#email.hide{opacity: 0;}
-        #play.kill,#mute.kill,#embed.kill,#email.kill{display: none;}
+    #contact-button{
+        position: absolute; 
+        top: 45px;
+        left: 5px;
+        width: 15px;
+        text-align: center;
+        cursor: pointer;
+    }
+    #contact-button img{
+        width: 7px;
+    }
+    #info-button{
+        position: absolute; 
+        top: 68px;
+        left: 4px;
+        width: 15px;
+        text-align: center;
+        cursor: pointer;
+    }
+    #info-button img{
+        width: 4px;
+    }
+
+    #play, #mute, #embed, #email{
+    -webkit-transition-duration: 800ms;
+    -moz-transition-duration: 800ms;
+    -o-transition-duration: 800ms;
+    transition-duration: 800ms;}
+
+    #play.show,#mute.show,#embed.show,#email.show{opacity: 1;}
+    #play.hide,#mute.hide,#embed.hide,#email.hide{opacity: 0;}
+    #play.kill,#mute.kill,#embed.kill,#email.kill{display: none;}
 
 
 
@@ -424,22 +457,13 @@ textarea {
             top: 100px;
             width: 260px;
             text-align: center;
-            font-size: 20px;
-            letter-spacing: -1px;
+            font-size: 14px;
             color: #FFF;
         }
 
-            button#button-cancel{
-                position: relative;
-                font-family: 'adobe-caslon-pro', 'Georgia', 'Times New Roman', serif;
-                width: 21px; height: 21px; 
-                left: 225px; top: 0px;
-                line-height: 16px;
-                border-radius: 50%; 
-                border: none; margin-left: -16px;
-                background: #FFF;
-                              text-transform:lowercase;
-                            }
+        #button-cancel{
+            left:225px;   
+        }
 
   #embed-prompt{position: absolute;
         -webkit-transition-duration: 800ms;
@@ -512,15 +536,10 @@ textarea {
                 border: none; margin-left: -16px;
                 background: #FFF;}
 
-            button#embed-cancel{
-                position: absolute;
-                font-family: 'adobe-caslon-pro', 'Georgia', 'Times New Roman', serif;
-                width: 21px; height: 21px; 
-                left: 120%; top: -80%; 
-                line-height: 16px;
-                border-radius: 50%; 
-                border: none; margin-left: -16px;
-                background: #FFF;}
+            #embed-cancel{
+                left: 210px !important;
+                margin-left: 0 !important;
+            }
 
 
     #not-supported{
@@ -550,6 +569,103 @@ textarea {
         #embedded-logo{position: absolute; bottom: -8px; right: 2px;}
         #embedded-logo.kill{display: none;}
 
+
+        /* INFO AREA */
+
+        #email-info{
+            position: absolute;
+            -webkit-transition-duration: 800ms;
+            -moz-transition-duration: 800ms;
+            -o-transition-duration: 800ms;
+            transition-duration: 800ms;
+            width: 350px;
+            height: 350px;
+            left: 50%;
+            top: 50%;
+            margin-left: -175px;
+            margin-top: -175px;
+            border-radius: 50%;
+            background: #000;
+        }
+        #email-info .content{
+            text-align: center;
+            width: 260px;
+            height: 260px;
+            left: 46px;
+            top: 145px;
+            position: relative;
+            font-size: 12px;
+            color: white;
+        }
+        #email-info .content a{
+            color: white;
+            text-decoration: none;
+        }
+        #email-info .content h3{
+            font-size: 1em;
+            margin: 1em 0;
+            font-weight: lighter;
+        }
+        #email-info.show{opacity: 1;}
+        #email-info.hide{opacity: 0;}
+        #email-info.kill{display: none;}
+
+
+        /* Contact AREA */
+
+        #email-contact{
+            position: absolute;
+            -webkit-transition-duration: 800ms;
+            -moz-transition-duration: 800ms;
+            -o-transition-duration: 800ms;
+            transition-duration: 800ms;
+            width: 350px;
+            height: 350px;
+            left: 50%;
+            top: 50%;
+            margin-left: -175px;
+            margin-top: -175px;
+            border-radius: 50%;
+            background: #000;
+        }
+        #email-contact .content{
+            text-align: center;
+            width: 160px;
+            height: 160px;
+            left: 95px;
+            top: 110px;
+            position: relative;
+            font-size: 12px;
+            color: white;
+        }
+        #email-contact .content a{
+            color: white;
+            text-decoration: none;
+        }
+        #email-contact .content h3{
+            font-size: 1em;
+            margin: 0 !important;
+            font-weight: lighter;
+        }
+        #email-info .button-cancel{
+            left: 25px;
+            top: -236px;
+        }
+        #email-contact .button-cancel{
+            left: 100px;
+            top: -200px;
+        }
+        .button-cancel{
+            position: relative;
+            font-family: 'adobe-caslon-pro', 'Georgia', 'Times New Roman', serif;
+            width: 22px; height: 22px; 
+            line-height: 0px;
+            border: none; margin-left: -16px;
+            cursor: pointer;
+        }
+        #email-contact.show{opacity: 1;}
+        #email-contact.hide{opacity: 0;}
+        #email-contact.kill{display: none;}
 /* ==========================================================================
    Media Queries
    ========================================================================== */
@@ -557,9 +673,16 @@ textarea {
 @media only screen and (min-width: 35em) {
 
 }
-@media only screen and (max-device-width: 768px){
-    button#button-submit{
-        text-indent:-6px !important;
+@medibutton-cancel{a only screen and (max-device-width: 768px){
+    button-cancel{
+        text-indent: -4px !important;
+    }
+    .button-cancel{
+        text-indent: -4px !important;
+        height: 28px !important;
+        text-transform: lowercase !important;
+        font-size: 14px;
+        width: 6px !important;
     }
 }
 

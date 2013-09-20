@@ -28,6 +28,8 @@
     <div id="play" class="hide kill" title="Play Sound">♪</div>
     <div id="mute" class="show" title="Mute Sound">⦰</div>
     <div id="embed" class="show" title="Embed Code">&lt;/&gt;</div>
+    <div id="contact-button" class="show" title="Contact"><img src="img/contact.png"></div>
+    <div id="info-button" class="show" title="Info"><img src="img/info.png"></div>
     <div id="email" class="kill" title="Sign-Up Email">Email</div>
 </header>
     <div id="content" class="loading">
@@ -77,12 +79,47 @@
 
             <div class="content">
                 <div id="thanks-logo"></div>
-                <div id="thanks-txt">Thank you<br/>And welcome to the <br/>walking time</div>
-                <button value="x" id="button-cancel" type="button">x</button>
+                <div id="thanks-txt">Thank you,<br/>and welcome to the <br/>Walking Time</div>
+                <img class="button-cancel" id="button-cancel" src="img/close.png">
             </div><!--/.content-->
 
         </div><!--/email-thankyou-->
 
+        <div id="email-contact" class="hide kill">
+
+            <div class="content">
+                <h3>STUDIO</h3>
+                <a href="mailto:studio@marykatrantzou.com">studio@marykatrantzou.com</a><br />
+                (+44) 2033933021
+                <br /><br />
+                <h3>SALES</h3>
+                <a href="mailto:sales@marykatrantzou.com">sales@marykatrantzou.com</a>
+                <br /><br />
+                <h3>PRESS</h3>
+                <a href="mailto:marykatrantzou@karlaotto.com">marykatrantzou@karlaotto.com</a>
+                <img class="button-cancel" id="close-contact" src="img/close.png">
+            </div><!--/.content-->
+
+        </div><!--/email-thankyou-->
+
+        <div id="email-info" class="hide kill">
+
+            <div class="content">
+                Mary Katrantzou’s Walking Time<br /><br />
+
+                created by Ferdinando Verderi <br />
+                <a href="http://johannesleonardoferdinando.com" target="_blank">johannesleonardoferdinando.com</a>
+                <br /><br />
+
+                digital production<br />
+                <a href="http://welcometolegs.com" target="_blank">LEGS</a><br /><br />
+
+                info<br /> 
+                <a href="mailto:nick@marykatrantzou.com">nick@marykatrantzou.com</a>
+               <img class="button-cancel" id="close-info" src="img/close.png">
+            </div><!--/.content-->
+
+        </div><!--/email-thankyou-->
 
         <div id="embed-prompt" class="hide kill">
 
@@ -93,8 +130,8 @@
                     <textarea id="text-area"><iframe src="http://www.marykatrantzou.com/index.html?embed" width="300" height="300" frameborder="0" scrolling="no" webkitallowfullscreen mozallowfullscreen allowfullscreen>
                     </textarea>
                     <button value="copy" id="embed-copy" type="button">copy</button>
-                    <button value="x" id="embed-cancel" type="button">x</button>
                 </form>
+                <img class="button-cancel" id="embed-cancel" src="img/close.png">
             </div><!--/.content-->
 
         </div><!--/embed-prompt-->
