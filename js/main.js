@@ -586,7 +586,8 @@
 
 				setTimeout(function(){$es.className = 'hide kill';}, 1000); // prevent focusing on input elements
 
-				createCookie('marykcookie','name:'+iName+'-email:'+iEmail,7);
+				//createCookie('marykcookie','name:'+iName+'-email:'+iEmail,30);
+				createCookie('marykcookie', 'set', 30);
 			}else{
 				$('input-email').className = 'txt error';
 			}
@@ -594,6 +595,8 @@
 			return valid;
 		};
 
+
+// Disable scrolling
 
 var keys = [37, 38, 39, 40];
 
